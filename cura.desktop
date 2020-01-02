@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=4.4.1
+Type=Application
+Terminal=false
+Exec=/opt/appimage/Cura-4.4.1.AppImage
+Name=Cura
+Icon=/home/tomw/Pictures/icons/curaicon.png
