@@ -78,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo vi-mode git fzf)
+plugins=(sudo git fzf)
 
 # Set fzf installation directory path
 export FZF_BASE=/usr/bin/fzf
@@ -93,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #
-ZSH_DISABLE_COMPFIX=true
+# ZSH_DISABLE_COMPFIX=true
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -126,6 +126,7 @@ alias pycharm="bash /opt/pycharm/bin/pycharm.sh"
 alias ansible_exec="sudo -Hu ansible bash -c"
 alias ls="exa"
 alias cat="bat"
+alias gcloud-fetch-ip="echo \"Name \t PrivIP \t\t ExtIP\" && gcloud compute instances list | awk '$1 ~ /[0-9]$/ {print$1, \"\t\", $4, \"\t\t\", $5}'"
 
 #AppImage Application Aliases
 alias cura="/opt/appimage/Cura-4.4.1.AppImage"
