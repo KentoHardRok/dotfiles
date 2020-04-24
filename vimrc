@@ -15,6 +15,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ciaranm/securemodelines'
 Plugin 'vim-scripts/localvimrc'
 Plugin 'justinmk/vim-sneak'
+Plugin 'lepture/vim-jinja'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'mrk21/yaml-vim'
 "
 " files
 Plugin 'scrooloose/nerdtree'
@@ -45,3 +48,4 @@ set incsearch   " show search matches as you type
 set ignorecase  " case insensitive search
 set smartcase   " If a capital letter is included in search, make it case-sensitive
 set nohlsearch  " dont highlight search results
+noremap <C-w>v <esc>:vnew<cr>
