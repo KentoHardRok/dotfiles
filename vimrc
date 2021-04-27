@@ -18,6 +18,9 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 
+" Auto PEP8
+Plug 'tell-k/vim-autopep8'
+
 call plug#end()
 
 " Helps force plugins to load correctly when it is turned back on below
