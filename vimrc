@@ -2,9 +2,7 @@
 " Don't try to be vi compatible
 set nocompatible
 
-" ====
-" = PLUGINS
-" ====
+" PLUGINS
 
 set nocompatible
 filetype off
@@ -20,6 +18,12 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Auto PEP8
 Plug 'tell-k/vim-autopep8'
+
+" Syntastic"
+Plug 'scrooloose/syntastic'
+
+" pylint
+Plug 'vim-scripts/pylint.vim'
 
 call plug#end()
 
@@ -138,3 +142,13 @@ let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
+"
+" Syntastic Help
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
