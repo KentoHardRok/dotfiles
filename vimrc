@@ -1,51 +1,137 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Don't try to be vi compatible
+set nocompatible
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"
+" ====
+" = PLUGINS
+" ====
+
+set nocompatible
+filetype off
+"set rtp+=~/dev/others/base16/builder/templates/vim/
+call plug#begin()
+
 " Load plugins
 " VIM enhancements
-Plugin 'ciaranm/securemodelines'
-Plugin 'vim-scripts/localvimrc'
-Plugin 'justinmk/vim-sneak'
-Plugin 'lepture/vim-jinja'
-Plugin 'pearofducks/ansible-vim'
-Plugin 'mrk21/yaml-vim'
-"
+
 " files
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-"
-" GUI enhancements
-Plugin 'itchyny/lightline.vim'
-Plugin 'w0rp/ale'
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'andymass/vim-matchup'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 
-set mouse=a             " enable mouse support (might not work well on Mac OS X)
-set wildmenu            " visual autocomplete for command menu
-set showmatch           " highlight matching parentheses / brackets [{()}]
-set list                " show trailing whitespace chars
-set listchars=tab:>-,trail:.,extends:#,nbsp:.
-set autoindent          " autoindent
-set copyindent          " copy the previous indentation on autoindenting
-set number              " show line numbers
+call plug#end()
 
-set incsearch   " show search matches as you type
-set ignorecase  " case insensitive search
-set smartcase   " If a capital letter is included in search, make it case-sensitive
-set nohlsearch  " dont highlight search results
-noremap <C-w>v <esc>:vnew<cr>
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+" TODO: Load plugins here (pathogen or vundle)
+
+" Turn on syntax highlighting
+syntax on
+
+" Attempt to determine the type of a file based on its name and possibly its
+" contents. Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+if has('filetype')
+  filetype indent plugin on
+endif
+
+
+" For plugins to load correctly
+filetype plugin indent on
+
+" TODO: Pick a leader key
+let mapleader = "\<space>"
+
+noremap <leader>lo <ESC>:set cursorcolumn<CR>
+noremap <leader>ol <ESC>:set nocursorcolumn<CR>
+" set cursorline
+
+" Security
+set modelines=0
+
+" Show line numbers
+set number
+
+" Show file stats
+set ruler
+
+" Blink cursor on error instead of beeping (grr)
+" set visualbell
+
+" Encoding
+set encoding=utf-8
+
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Status bar
+set laststatus=2
+
+" Last line
+set wildmenu
+set showmode
+set showcmd
+
+
+" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
+" mapping of <C-L> below)
+set hlsearch
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Textmate holdouts
+
+" Formatting
+map <leader>q gqip
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+" in ~/.vim/colors/ and uncomment:
+" colorscheme solarized

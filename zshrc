@@ -6,13 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/wrk/skripts/:/opt/pycharm/bin/:/opt/appimage/:$PATH
+export PATH=/wrk/skripts/:/opt/pycharm/bin/:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/tomw/.oh-my-zsh"
-
-# Fix ST term shit
-export TERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -78,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo git fzf)
+plugins=(sudo vi-mode git fzf)
 
 # Set fzf installation directory path
 export FZF_BASE=/usr/bin/fzf
@@ -93,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #
-# ZSH_DISABLE_COMPFIX=true
+ZSH_DISABLE_COMPFIX=true
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -126,10 +123,6 @@ alias pycharm="bash /opt/pycharm/bin/pycharm.sh"
 alias ansible_exec="sudo -Hu ansible bash -c"
 alias ls="exa"
 alias cat="bat"
-alias gcloud-fetch-ip="echo \"Name \t PrivIP \t\t ExtIP\" && gcloud compute instances list | awk '$1 ~ /[0-9]$/ {print$1, \"\t\", $4, \"\t\t\", $5}'"
-
-#AppImage Application Aliases
-alias cura="/opt/appimage/Cura-4.4.1.AppImage"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/tomw/google-cloud-sdk/path.zsh.inc' ]; then . '/home/tomw/google-cloud-sdk/path.zsh.inc'; fi
