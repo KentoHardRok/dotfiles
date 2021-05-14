@@ -2,10 +2,6 @@
 " Don't try to be vi compatible
 set nocompatible
 
-" Install vimplug with:
-" https://github.com/junegunn/vim-plug
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
-
 " PLUGINS
 
 set nocompatible
@@ -69,6 +65,12 @@ set ruler
 " Blink cursor on error instead of beeping (grr)
 " set visualbell
 
+" fold toggle
+nnoremap <space> za
+
+" and set fold method
+" set foldmethod=indent
+
 " Encoding
 set encoding=utf-8
 
@@ -120,6 +122,15 @@ set ignorecase
 set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
+
+"Set auto Hybrid Line Number Mode
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
