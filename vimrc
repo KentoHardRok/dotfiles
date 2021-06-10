@@ -25,6 +25,9 @@ Plug 'scrooloose/syntastic'
 " pylint
 Plug 'vim-scripts/pylint.vim'
 
+" bash support
+Plug 'vim-scripts/bash-support.vim'
+
 call plug#end()
 
 " Helps force plugins to load correctly when it is turned back on below
