@@ -1,0 +1,14 @@
+# First to set root-authentication
+set system root-authentication plain-text-password 
+
+# Next we disable those annoying syslog messages
+deactivate system syslog user *
+
+# also delete that auto image upgrade shit
+delete chassis auto-image-upgrade
+
+# and commit!
+commit
+
+
+
