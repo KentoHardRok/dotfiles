@@ -99,3 +99,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+### In case i didnt already load it, here is the files and how to : https://gitlab.com/dwt1/shell-color-scripts
+### git clone https://gitlab.com/dwt1/shell-color-scripts.git
+#cd shell-color-scripts
+#rm -rf /opt/shell-color-scripts || return 1
+#sudo mkdir -p /opt/shell-color-scripts/colorscripts || return 1
+#sudo cp -rf colorscripts/* /opt/shell-color-scripts/colorscripts
+#sudo cp colorscript.sh /usr/bin/colorscript
+#
+## optional for zsh completion
+#sudo cp zsh_completion/_colorscript /usr/share/zsh/site-functions
+#
+#
+### Random Color ###
+colorscript random
